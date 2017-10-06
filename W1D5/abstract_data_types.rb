@@ -1,20 +1,35 @@
 class Stack
   def initialize
-    @ivar = []
+    @stack = []
   end
 
   def add(el)
-    @ivar << el
+    @stack << el
   end
 
   def remove
-    @ivar.pop
+    @stack.pop
   end
 
   def show
-    @ivar
+    @stack
   end
 end
 
+class Queue
+  def initialize
+    @queue = []
+  end
 
+  def enqueue(el)
+    @queue << el
+  end
+
+  def dequeue
+    @queue.shift
+  end
+
+  def show
+    @queue
+  end
 end
