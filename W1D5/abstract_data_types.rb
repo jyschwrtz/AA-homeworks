@@ -33,3 +33,25 @@ class Queue
     @queue
   end
 end
+
+class Map
+  def initialize
+    @map = []
+  end
+
+  def assign(key, value)
+    @map << [key, value]
+  end
+
+  def lookup(key)
+    @map.select { |arr| arr[0] == key}.first
+  end
+
+  def remove(key)
+    @map = @map.reject { |arr| arr[0] == key }
+  end
+
+  def show
+    @map
+  end
+end
