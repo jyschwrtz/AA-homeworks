@@ -29,6 +29,7 @@ class Simon
 
   def show_sequence
     add_random_color
+    puts "Sequence:"
     puts @seq
     sleep(@show_time)
     system("clear")
