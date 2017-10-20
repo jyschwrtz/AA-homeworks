@@ -102,19 +102,41 @@ class CorgiSnacks
 
 end
 
-
 class MetaCorgiSnacks
   def initialize(snack_box, box_id)
     @snack_box = snack_box
     @box_id = box_id
+    snack_box.methods.grep(/^get_(.*)_info$/) { MetaCorgiSnacks.define_snack $1 }
   end
-
-  def method_missing(name, *args)
-    # Your code goes here...
-  end
+  # #
+  # def method_missing(name, *args)
+  #   # Your code goes here...
+  #   method_name = name.to_s
+  #   snacks = %w[bone kibble treat]
+  #   if snacks.include?(method_name)
+  #     method_info_name = "get_#{method_name}_info"
+  #     method_tastiness_name = "get_#{method_name}_tastiness"
+  #     info = @snack_box.send(method_info_name, @box_id)
+  #     tastiness = @snack_box.send(method_tastiness_name, @box_id)
+  #     result = "#{method_name.capitalize}: #{info}: #{tastiness} "
+  #     tastiness > 30 ? "* #{result}" : result
+  #   else
+  #     super
+  #   end
+  # end
 
 
   def self.define_snack(name)
     # Your code goes here...
+    define_method(name) do
+      method_info_name = "get_#{name}_info"
+      method_tastiness_name = "get_#{name}_tastiness"
+      info = @snack_box.send(method_info_name, @box_id)
+      tastiness = @snack_box.send(method_tastiness_name, @box_id)
+      result = "#{name.capitalize}: #{info}: #{tastiness} "
+      tastiness > 30 ? "* #{result}" : result
+    end
   end
+
+
 end
