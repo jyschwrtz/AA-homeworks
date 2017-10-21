@@ -1,18 +1,24 @@
 class BooksController < ApplicationController
   def index
-    # your code here
+    # render json: Book.all
+    @books = Book.all
   end
 
   def new
-    # your code here
+
   end
 
   def create
-    # your code here
+    # p params
+    new_book = Book.new(book_params)
+    new_book.save
+    redirect_to action: 'index'
   end
 
   def destroy
-    # your code here
+    book = Book.find(params[:id])
+    Book.delete(book[:id])
+    redirect_to action: 'index'
   end
 
   private
