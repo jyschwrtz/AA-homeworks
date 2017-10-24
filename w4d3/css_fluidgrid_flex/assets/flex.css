@@ -116,3 +116,46 @@ textarea {
 label {
     display: block;
 }
+
+.hamburger-dropdown {
+  display: none;
+}
+
+@media (max-width: 900px) {
+
+  nav> ul:first-child > li > a{
+    display: none;
+  }
+
+  .hamburger-dropdown {
+    display: block;
+  }
+
+  .hamburger-dropdown > li:first-child {
+      height: 50px;
+      width: 50px;
+      background-image: url('hamburger.png');
+      background-size: 50px 50px;
+      position: relative;
+      cursor: pointer;
+  }
+
+  .hamburger-dropdown ul {
+    position: absolute;
+    top: 40px;
+    display: none;
+    flex-direction: column;
+
+    box-shadow: black 5px 5px 10px;
+
+  }
+
+  .hamburger-dropdown:hover ul {
+    display: flex;
+    background: antiquewhite;
+  }
+
+  .hamburger-dropdown ul li:hover a {
+    text-decoration: underline;
+  }
+}
