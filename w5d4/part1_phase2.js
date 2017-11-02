@@ -28,3 +28,30 @@ function isPrime(number) {
 // console.log(isPrime(10))
 // console.log(isPrime(15485863))
 // console.log(isPrime(3548563))
+
+
+function firstNPrimes(number) {
+  let arr = [];
+  let i = 2;
+  while (arr.length < number) {
+    if ( isPrime(i) ) {
+      arr.push(i);
+      // console.log(i);
+    }
+    i++;
+  }
+  return arr;
+}
+
+console.log(firstNPrimes(5))
+
+
+function sumOfNPrimes(number) {
+  let sum = 0;
+  arr = firstNPrimes(number);
+  for (i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum
+}
+console.log(sumOfNPrimes(4))
