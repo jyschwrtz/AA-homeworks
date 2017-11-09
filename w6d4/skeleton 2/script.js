@@ -20,14 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const addLi = (e) => {
     e.preventDefault();
-    const button = e.target;
     const input = document.querySelectorAll(".favorite-input")[0];
-    console.log(input.value);
     const li = document.createElement("li");
     const text = document.createTextNode(`${input.value}`);
     li.appendChild(text);
     const ul = document.querySelectorAll("#sf-places")[0];
     ul.appendChild(li);
+    input.value = "";
   };
 
   document.querySelectorAll(".favorite-submit").forEach((button) => {
@@ -36,8 +35,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // adding new photos
 
+  const showForm = (e) => {
+    e.preventDefault();
+    const div = document.querySelectorAll(".photo-form-container")[0];
+    if (div.className.includes("hidden")) {
+      div.classList.remove("hidden");
+    } else {
+      div.classList.add("hidden");
+    }
+  };
 
+  document.querySelectorAll(".photo-show-button").forEach((button) => {
+    button.addEventListener("click", showForm);
+  });
 
+  const addUrl = (e) => {
+    e.preventDefault();
+    const img = document.createElement("img");
+    const li = document.createElement("li");
+    const ul = document.querySelectorAll(".dog-photos")[0];
+    const input = document.querySelectorAll(".photo-url-input")[0];
+    img.src = input.value;
+
+    li.appendChild(img);
+    ul.appendChild(li);
+    input.value = "";
+  };
+
+  document.querySelectorAll(".photo-url-submit").forEach((button) => {
+    button.addEventListener("click", addUrl);
+  });
 
 
 });
