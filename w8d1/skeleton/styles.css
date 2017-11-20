@@ -1,0 +1,91 @@
+.logo {
+  width: 75px;
+  height: 75px;
+  border-radius: 10px;
+}
+
+a:hover {
+  font-weight: 700;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 100%;
+  background: lightgray;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.footer {
+  position: absolute;
+  width: 300px;
+  bottom: 0;
+  transform: translateX(-50%);
+  left: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer-home {
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transform: translateX(50%);
+  left: 50%;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /*display: flex;*/
+
+}
+
+.main-content {
+  display: block;
+  width: 100%;
+  padding: 20px;
+}
+
+.session-links {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forms {
+  display: flex;
+}
+
+form>input:last-of-type:hover {
+  background: gray;
+}
+
+.form {
+  border: 1px solid black;
+  background: lightgray;
+  padding: 10px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  /*width: auto;
+  height: auto;*/
+}
+
+.nav-bar-home {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100px;
+  background: lightgray;
+  justify-content: space-between;
+  align-items: center;
+}
